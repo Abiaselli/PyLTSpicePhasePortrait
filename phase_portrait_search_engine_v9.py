@@ -19,17 +19,6 @@ What this script does
    - CSV summary
    - per-run PNG plots
    - the generated .net files
-
-Important limitation
---------------------
-The AO6608 models you uploaded are .MODEL VDMOS definitions, while the ZVN3310A and
-ZVP3310A uploads are .SUBCKT definitions. That means direct one-line swapping of the core
-M-transistors in your current Wijekoon-style netlist is not universally compatible. This
-script therefore uses the AO6608 core as the default search baseline, and treats topology
-changes, capacitances, currents, and bias voltages as the main search axes.
-
-If you later want, a second version can generate alternate netlist templates that use X...
-subcircuit instantiations for ZVN/ZVP-based cores.
 """
 
 from dataclasses import dataclass, asdict
@@ -51,8 +40,8 @@ from PyLTSpice import LTspice, RawRead, SimRunner
 # User configuration
 # -----------------------------------------------------------------------------
 
-BASE_NETLIST = Path(r"C:\Users\abias\Downloads\a06608workingtests\a19working92625\pyltspice1\a6608test22utest1.cir")
-OUTPUT_DIR = Path(r"C:\Users\abias\Downloads\a06608workingtests\a19working92625\pyltspice1\phase_portrait_search")
+BASE_NETLIST = Path(r"C:\Users\{USER}\Downloads\pyltspice1\a6608test22utest1.cir")
+OUTPUT_DIR = Path(r"C:\Users\{USER}\Downloads\pyltspice1\phase_portrait_search")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # If LTspice is already discoverable by PyLTSpice, leave this as LTspice.
