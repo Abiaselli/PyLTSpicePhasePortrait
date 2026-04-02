@@ -40,8 +40,8 @@ from PyLTSpice import LTspice, RawRead, SimRunner
 # User configuration
 # -----------------------------------------------------------------------------
 
-BASE_NETLIST = Path(r"C:\Users\{USER}\Downloads\pyltspice1\a6608test22utest1.cir")
-OUTPUT_DIR = Path(r"C:\Users\{USER}\Downloads\pyltspice1\phase_portrait_search")
+BASE_NETLIST = Path(r"C:\Users\{$env:USERNAME}\Downloads\pyltspice1\a6608test22utest1.cir")
+OUTPUT_DIR = Path(r"C:\Users\{$env:USERNAME}\Downloads\pyltspice1\phase_portrait_search")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # If LTspice is already discoverable by PyLTSpice, leave this as LTspice.
